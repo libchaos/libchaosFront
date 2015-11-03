@@ -17,8 +17,12 @@
   },
   "homepage": "https://github.com/libchaos/libchaosFront#readme",
   "devDependencies": {
+    "babel-loader": "^6.0.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
-    "gulp-sass": "^2.1.0"
+    "gulp-sass": "^2.1.0",
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2",
+    "webpack": "^1.12.2"
   }
 }
