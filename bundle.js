@@ -48,7 +48,7 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(158);
 	var App = __webpack_require__(159);
-	__webpack_require__(164);
+	__webpack_require__(166);
 
 	ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
 
@@ -14607,7 +14607,7 @@
 	 *
 	 * @providesModule shallowEqual
 	 * @typechecks
-	 * 
+	 *
 	 */
 
 	'use strict';
@@ -19649,8 +19649,8 @@
 	// var ReactDOM = require('react-dom');
 	var Title = __webpack_require__(160);
 	var Name = __webpack_require__(161);
-	var Action = __webpack_require__(162);
-	var Heros = __webpack_require__(163);
+	var Action = __webpack_require__(164);
+	var Heros = __webpack_require__(165);
 
 	var App = React.createClass({
 	  displayName: 'App',
@@ -19702,7 +19702,8 @@
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var ReactDOM = __webpack_require__(158);
+	// var ReactDOM = require('react-dom');
+	var Button = __webpack_require__(162);
 
 	var Name = React.createClass({
 	  displayName: 'Name',
@@ -19721,11 +19722,7 @@
 	        null,
 	        'Just a newbee 这里，会有什么呢？'
 	      ),
-	      React.createElement(
-	        'a',
-	        { href: 'http://libchaos.github.io', className: 'visit-libchaos' },
-	        '访问'
-	      )
+	      React.createElement(Button, { isPink: true, text: '访问' })
 	    );
 	  }
 	});
@@ -19739,8 +19736,92 @@
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var ReactDOM = __webpack_require__(158);
+	var cx = __webpack_require__(163);
 
+	var Button = React.createClass({
+	  displayName: 'Button',
+
+	  render: function render() {
+	    var classes = cx({
+	      button: true,
+	      green: this.props.isGreen,
+	      pink: this.props.isPink
+	    });
+
+	    return React.createElement(
+	      'a',
+	      { herf: '#', className: classes },
+	      this.props.text
+	    );
+	  }
+	});
+
+	module.exports = Button;
+
+/***/ },
+/* 163 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	  Copyright (c) 2015 Jed Watson.
+	  Licensed under the MIT License (MIT), see
+	  http://jedwatson.github.io/classnames
+	*/
+	/* global define */
+
+	'use strict';
+
+	(function () {
+		'use strict';
+
+		var hasOwn = ({}).hasOwnProperty;
+
+		function classNames() {
+			var classes = '';
+
+			for (var i = 0; i < arguments.length; i++) {
+				var arg = arguments[i];
+				if (!arg) continue;
+
+				var argType = typeof arg;
+
+				if (argType === 'string' || argType === 'number') {
+					classes += ' ' + arg;
+				} else if (Array.isArray(arg)) {
+					classes += ' ' + classNames.apply(null, arg);
+				} else if (argType === 'object') {
+					for (var key in arg) {
+						if (hasOwn.call(arg, key) && arg[key]) {
+							classes += ' ' + key;
+						}
+					}
+				}
+			}
+
+			return classes.substr(1);
+		}
+
+		if (typeof module !== 'undefined' && module.exports) {
+			module.exports = classNames;
+		} else if (true) {
+			// register as 'classnames', consistent with npm package name
+			!(__WEBPACK_AMD_DEFINE_RESULT__ = function () {
+				return classNames;
+			}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		} else {
+			window.classNames = classNames;
+		}
+	})();
+
+/***/ },
+/* 164 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	// var ReactDOM = require('react-dom');
+	var Button = __webpack_require__(162);
 	var Action = React.createClass({
 	  displayName: 'Action',
 
@@ -19748,11 +19829,7 @@
 	    return React.createElement(
 	      'div',
 	      { className: 'name clearfix' },
-	      React.createElement(
-	        'a',
-	        { href: 'http://libchaos.github.io', className: 'visit-libchaos' },
-	        'hello, everyone'
-	      )
+	      React.createElement(Button, { isGreen: true, text: 'Search' })
 	    );
 	  }
 	});
@@ -19760,45 +19837,45 @@
 	module.exports = Action;
 
 /***/ },
-/* 163 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(1);
-	var ReactDOM = __webpack_require__(158);
+	// var ReactDOM = require('react-dom');
 
 	var Heros = React.createClass({
-	  displayName: 'Heros',
+	  displayName: "Heros",
 
 	  render: function render() {
 	    return React.createElement(
-	      'div',
-	      { className: 'heros clearfix' },
+	      "div",
+	      { className: "heros clearfix" },
 	      React.createElement(
-	        'div',
-	        { className: 'hero' },
-	        React.createElement('img', { src: 'images/hulk.jpg', alt: true, className: 'cover' })
+	        "div",
+	        { className: "hero" },
+	        React.createElement("img", { src: "images/hulk.jpg", alt: true, className: "cover" })
 	      ),
 	      React.createElement(
-	        'div',
-	        { className: 'hero' },
-	        React.createElement('img', { src: 'images/captain_america.jpg', alt: true, className: 'cover' })
+	        "div",
+	        { className: "hero" },
+	        React.createElement("img", { src: "images/captain_america.jpg", alt: true, className: "cover" })
 	      ),
 	      React.createElement(
-	        'div',
-	        { className: 'hero' },
-	        React.createElement('img', { src: 'images/she-hulk.jpg', alt: true, className: 'cover' })
+	        "div",
+	        { className: "hero" },
+	        React.createElement("img", { src: "images/she-hulk.jpg", alt: true, className: "cover" })
 	      ),
 	      React.createElement(
-	        'div',
-	        { className: 'hero' },
-	        React.createElement('img', { src: 'images/spider-man.jpg', alt: true, className: 'cover' })
+	        "div",
+	        { className: "hero" },
+	        React.createElement("img", { src: "images/spider-man.jpg", alt: true, className: "cover" })
 	      ),
 	      React.createElement(
-	        'div',
-	        { className: 'hero' },
-	        React.createElement('img', { src: 'images/captain-marvel.jpg', alt: true, className: 'cover' })
+	        "div",
+	        { className: "hero" },
+	        React.createElement("img", { src: "images/captain-marvel.jpg", alt: true, className: "cover" })
 	      )
 	    );
 	  }
@@ -19807,16 +19884,16 @@
 	module.exports = Heros;
 
 /***/ },
-/* 164 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(165);
+	var content = __webpack_require__(167);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(167)(content, {});
+	var update = __webpack_require__(169)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -19833,21 +19910,21 @@
 	}
 
 /***/ },
-/* 165 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(166)();
+	exports = module.exports = __webpack_require__(168)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "/* Palette generated by Material Palette - materialpalette.com/blue-grey/lime */\nbody {\n  margin: 0;\n  font-family: \"Helvetica Neue\", \"Segoe UI\", Helvetica, Arial, \"Hiragino Sans GB\", \"Microsoft YaHei\", \"WenQuanYi Micro Hei\", sans-serif; }\n\nul {\n  margin: 0;\n  padding: 0; }\n\na {\n  text-decoration: none; }\n\n* {\n  box-sizing: border-box; }\n\n.button {\n  background-color: #CDDC39;\n  width: 7em;\n  height: 3em;\n  display: block; }\n\n.clearfix:before,\n.clearfix:after {\n  content: \"   \";\n  display: table; }\n\n.clearfix:after {\n  clear: both; }\n\nheader {\n  height: 5em;\n  background-color: #607D8B; }\n  header h2 {\n    margin-top: .8em;\n    color: #FFFFFF;\n    opacity: .8;\n    text-align: center;\n    font-weight: normal; }\n\n.action {\n  height: 9em; }\n  .action .action-button {\n    margin: 0 auto;\n    margin-top: 5em; }\n    @media (min-width: 600px) {\n      .action .action-button {\n        background-color: lightseagreen; } }\n\n.name {\n  height: 13em;\n  background-color: #607D8B; }\n  .name h2 {\n    margin-top: 2em;\n    color: #FFFFFF;\n    text-align: center;\n    font-weight: normal; }\n  .name p {\n    color: #FFFFFF;\n    opacity: .8;\n    text-align: center;\n    font-weight: normal; }\n  .name a.visit-libchaos {\n    display: block;\n    width: 6em;\n    text-align: center;\n    padding: .8em;\n    margin: 1.5em auto;\n    font-size: .8em;\n    color: #FFFFFF;\n    background-color: #455A64;\n    border-radius: 1em; }\n\n.heros .hero {\n  padding: 2em; }\n  @media (min-width: 600px) {\n    .heros .hero {\n      width: 33.3333%;\n      float: left; } }\n  .heros .hero .cover {\n    display: block;\n    margin: 0 auto;\n    width: 70%; }\n\nfooter {\n  height: 5em;\n  background-color: #212121; }\n", ""]);
+	exports.push([module.id, "/* Palette generated by Material Palette - materialpalette.com/blue-grey/lime */\n.button {\n  display: block;\n  -webkit-transition: all .3s ease-out;\n          transition: all .3s ease-out;\n  cursor: pointer;\n  color: #fff;\n  font-size: 1.2rem;\n  line-height: 2em;\n  text-align: center;\n  min-width: 8em;\n  max-width: 10em;\n  font-weight: 600;\n  padding: .6em 1em;\n  border-radius: .3em;\n  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }\n  .button:hover {\n    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);\n    color: white; }\n\n.button.pink {\n  background-color: #CDDC39; }\n  .button.pink:hover {\n    background-color: #d8e464; }\n\n.button.green {\n  background-color: lightseagreen; }\n  .button.green:hover {\n    background-color: #2cd9d0; }\n\nbody {\n  margin: 0;\n  font-family: \"Helvetica Neue\", \"Segoe UI\", Helvetica, Arial, \"Hiragino Sans GB\", \"Microsoft YaHei\", \"WenQuanYi Micro Hei\", sans-serif; }\n\nul {\n  margin: 0;\n  padding: 0; }\n\na {\n  text-decoration: none; }\n\n* {\n  box-sizing: border-box; }\n\n.clearfix:before,\n.clearfix:after {\n  content: \"   \";\n  display: table; }\n\n.clearfix:after {\n  clear: both; }\n\n.button {\n  display: block;\n  -webkit-transition: all .3s ease-out;\n          transition: all .3s ease-out;\n  cursor: pointer;\n  color: #fff;\n  font-size: 1.2rem;\n  line-height: 2em;\n  text-align: center;\n  min-width: 8em;\n  max-width: 10em;\n  font-weight: 600;\n  padding: .6em 1em;\n  border-radius: .3em;\n  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }\n  .button:hover {\n    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);\n    color: white; }\n\n.button.pink {\n  background-color: #CDDC39; }\n  .button.pink:hover {\n    background-color: #d8e464; }\n\n.button.green {\n  background-color: lightseagreen; }\n  .button.green:hover {\n    background-color: #2cd9d0; }\n\n.action {\n  height: 13em; }\n  .action .button {\n    margin: 0 auto;\n    margin-top: 7em; }\n\nheader {\n  height: 5em;\n  background-color: #607D8B; }\n  header h2 {\n    margin-top: .8em;\n    color: #FFFFFF;\n    opacity: .8;\n    text-align: center;\n    font-weight: normal; }\n\n.name {\n  height: 13em;\n  background-color: #607D8B; }\n  .name h2 {\n    margin-top: 2em;\n    color: #FFFFFF;\n    text-align: center;\n    font-weight: normal; }\n  .name p {\n    color: #FFFFFF;\n    opacity: .8;\n    text-align: center;\n    font-weight: normal; }\n  .name a.visit-libchaos {\n    display: block;\n    width: 6em;\n    text-align: center;\n    padding: .8em;\n    margin: 1.5em auto;\n    font-size: .8em;\n    color: #FFFFFF;\n    background-color: #455A64;\n    border-radius: 1em; }\n\n.heros .hero {\n  padding: 2em; }\n  @media (min-width: 600px) {\n    .heros .hero {\n      width: 33.3333%;\n      float: left; } }\n  .heros .hero .cover {\n    display: block;\n    margin: 0 auto;\n    width: 70%; }\n\nfooter {\n  height: 5em;\n  background-color: #212121; }\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 166 */
+/* 168 */
 /***/ function(module, exports) {
 
 	/*
@@ -19902,7 +19979,7 @@
 	};
 
 /***/ },
-/* 167 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
