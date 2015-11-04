@@ -1,3 +1,6 @@
+var React = require('react');
+// var ReactDOM = require('react-dom');
+
 var Title = React.createClass({
   render: function() {
     return (
@@ -10,4 +13,4 @@ var Title = React.createClass({
 });
 
 
-ReactDOM.render(<Title />, document.getElementById('title'));
+module.exports = Title;

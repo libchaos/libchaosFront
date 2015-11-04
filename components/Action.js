@@ -1,3 +1,6 @@
+var React = require('react');
+// var ReactDOM = require('react-dom');
+
  var Action = React.createClass({
     render: function() {
     return (
@@ -9,4 +12,4 @@
   }
 });
 
-    ReactDOM.render(<Action />, document.getElementById('action'));
+module.exports = Action;

@@ -1,3 +1,7 @@
-require('./hello.js');;
+'use strict'
+var React = require('react');
+var ReactDOM = require('react-dom');
+var App = require('./components/app.js');
+require('./styles/main.scss');
 
-console.log('main.js');
+ReactDOM.render(<App />, document.getElementById('app'));

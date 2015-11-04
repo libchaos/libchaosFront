@@ -1,3 +1,6 @@
+var React = require('react');
+// var ReactDOM = require('react-dom');
+
 var Name = React.createClass({
   render: function() {
     return (
@@ -11,4 +14,4 @@ var Name = React.createClass({
   }
 });
 
-ReactDOM.render(<Name />, document.getElementById('name'));
+module.exports = Name;

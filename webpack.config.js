@@ -6,8 +6,9 @@ module.exports = {
     },
     module: {
         loaders: [
+            { test: /\.scss$/, loader: 'style!css!autoprefixer!sass' },
             { test: /\.css$/, loader: "style!css" },
-            {js_test: /\.js$/, loader: "babel"}
+            {test: /\.js$/, loader: "babel"}
         ]
     }
 };

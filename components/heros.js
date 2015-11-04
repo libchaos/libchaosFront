@@ -1,3 +1,6 @@
+var React = require('react');
+// var ReactDOM = require('react-dom');
+
 var Heros = React.createClass({
   render: function() {
     return (
@@ -13,4 +16,4 @@ var Heros = React.createClass({
   }
 });
 
-ReactDOM.render(<Heros />, document.getElementById('heros'));
+module.exports = Heros;
